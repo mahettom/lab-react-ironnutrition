@@ -10,17 +10,27 @@ function App() {
   //                    STATE
 
   const [foods, setFoods] = useState(arrayOfFood)
-
-
+  const [searchValue, setSearchValue] = useState('')
 
   //                  COMPORTEMENT
 
   const handleFoodForm = (aFood) => {
-
     const foodCopy = [...foods]
     foodCopy.push(aFood)
     setFoods(foodCopy)
   }
+
+
+
+
+
+
+
+
+
+
+  // foods.filter((food) => food.name.include(searchValue))
+
 
 
   //                    RENDER
@@ -28,16 +38,18 @@ function App() {
   return (
     <div className="App">
 
-      <Search array={foods}/>
+      <Search {...{ searchValue, setSearchValue }} />
 
       <AddFoodForm handleFoodForm={handleFoodForm} />
 
-      {foods.map((food) => {
-        return (
-          <FoodBox food={food}/>
-        )
-      })}
+      <>
 
+        {foods.map((food) => {
+          return (
+            <FoodBox food={food} />
+          )
+        })}
+      </>
 
     </div>
   )

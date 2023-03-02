@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 function AddFoodForm(props) {
-const {handleFoodForm} = props
+    const { handleFoodForm } = props
 
     const [nameValue, setNameValue] = useState('')
     const [imageValue, setImageValue] = useState('')
@@ -17,8 +17,8 @@ const {handleFoodForm} = props
 
 
     const handleSubmit = (event) => {
-
         event.preventDefault()
+
         const newFood = {
             name: nameValue,
             image: imageValue,
@@ -29,29 +29,29 @@ const {handleFoodForm} = props
         handleFoodForm(newFood)
     }
 
-  return (
-    <form onSubmit={handleSubmit} >
-      <Divider>Add Food Entry</Divider>
+    return (
+        <form onSubmit={handleSubmit} >
+            <Divider>Add Food Entry</Divider>
 
-      <label>Name</label>
-      <Input value={nameValue} type='text' onChange={handleNameChange} />
+            <label>Name</label>
+            <Input value={nameValue} type='text' onChange={handleNameChange} />
 
-      <label>Image</label>
-      <Input value={imageValue} type='text' onChange={handleImageChange} />
-
-
-      <label>Calories</label>
-      <Input value={caloriesValue} type='number' onChange={handleCaloriesChange} />
+            <label>Image</label>
+            <Input value={imageValue} type='text' onChange={handleImageChange} />
 
 
+            <label>Calories</label>
+            <Input value={caloriesValue} type='number' onChange={handleCaloriesChange} />
 
-      <label>Servings</label>
-      <Input value={servingsValue} type='number' onChange={handleServingsChange} />
 
 
-      <button type='submit'>Create</button>
-    </form>
-  );
+            <label>Servings</label>
+            <Input value={servingsValue} type='number' onChange={handleServingsChange} />
+
+
+            <button type='submit'>Create</button>
+        </form>
+    );
 }
 
 export default AddFoodForm;

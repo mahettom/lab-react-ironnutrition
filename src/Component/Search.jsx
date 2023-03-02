@@ -1,47 +1,40 @@
-import { useState } from 'react';
 import { Divider, Input } from 'antd';
-import FoodBox from './FoodBox';
 
 function Search(props) {
 
 
-    const foods = props.array
+    const { searchValue, setSearchValue } = props
 
 
 
-//                              STATE
-    const [searchValue, setSearchValue] = useState('')
+    //                              STATE
 
 
 
-//                          COMPORTEMENT
-    const handleSearchChange = (event) => {
-        setSearchValue(event.target.value)
-}
+    //                          COMPORTEMENT
 
 
-    const handleSearch = () => {
+    // const handleSearch = (event) => {
 
-    const arrayToSearch = foods.map((food) => food.name.toUpperCase())
+    //     setSearchValue(event.target.value)
 
-    const resultArray = arrayToSearch.filter((food) => food.name.includes(searchValue))
-    console.log(resultArray)
-    resultArray.map((food) => {
-      return (
-        <FoodBox/>
-      )
-    })}
+    // }
 
 
 
-//                              RENDER
-  return (
-    <div>
-      <Divider>Search</Divider>
-      <Input value={searchValue} type="text" onChange={handleSearchChange} />
+    //                              RENDER
+    return (
+        <div>
+            <Divider>Search</Divider>
+            <Input value={searchValue} type="text" onChange={(event) => setSearchValue(event.target.value)} />
 
-    </div>
-  );
+            <ul>
+
+                <li></li>
+            </ul>
+
+        </div>
+    );
 }
 
 export default Search;
